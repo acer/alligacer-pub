@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My little SF wishlist">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
+    <title>My Wish is Your Command</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            --s: 140px; /* control the size */
+            --c1: #AB3E5B;
+            --c2: #FFBE40;
+            --text-primary: #2b472d;
+            --panel-bg: rgba(255, 255, 255, 0.95);
+            --content-width: 800px;
+            --_g:
+                #0000 25%, #0008 47%, var(--c1) 53% 147%, var(--c2) 153% 247%,
+                var(--c1) 253% 347%, var(--c2) 353% 447%, var(--c1) 453% 547%, #0008 553%, #0000 575%;
+            --_s: calc(25% / 3) calc(25% / 4) at 50%;
+            background:
+                radial-gradient(var(--_s) 100%, var(--_g)),
+                radial-gradient(var(--_s) 100%, var(--_g)) calc(var(--s) / 2) calc(3 * var(--s) / 4),
+                radial-gradient(var(--_s) 0, var(--_g)) calc(var(--s) / 2) 0,
+                radial-gradient(var(--_s) 0, var(--_g)) 0 calc(3 * var(--s) / 4),
+                repeating-linear-gradient(90deg, #002B48 calc(25% / -6) calc(25% / 6), #5A7A92 0 calc(25% / 2));
+            background-size: var(--s) calc(3 * var(--s) / 2);
+            animation: m 5s infinite linear;
+        }
+
+        @keyframes m {
+            to {
+                background-position:
+                    var(--s) 0,
+                    calc(var(--s) / -2) calc(3 * var(--s) / 4),
+                    calc(3 * var(--s) / 2) 0,
+                    calc(-1 * var(--s)) calc(3 * var(--s) / 4),
+                    0 0;
+            }
+        }
+
+        body {
+            font-family: "Amarante", serif;
+            font-size: 180%;
+            line-height: 1.6;
+            color: var(--text-primary);
+            min-height: 100vh;
+            margin: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+        }
+
+        /* Sticky banner */
+        .banner,
+        main,
+        footer {
+            width: 100%;
+            max-width: var(--content-width);
+            background-color: var(--panel-bg);
+        }
+
+        .banner {
+            position: sticky;
+            top: 0;
+            height: 15vh;
+            z-index: 1000;
+            overflow: hidden;
+            margin: 0 auto 12px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 4px 6px;
+            border-radius: 16px;
+            transition: height 0.35s ease, max-width 0.35s ease, background-color 0.35s ease, border-radius 0.35s ease;
+        }
+
+        .banner img {
+            flex: 0 1 auto;
+            min-width: 0;
+            width: auto;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            object-position: center center;
+            max-width: 56%;
+            padding: 12px;
+        }
+
+        .banner__tagline {
+            flex: 0 0 auto;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-size: clamp(0.64em, 2.82vw, 1.19em);
+            line-height: 1.2;
+            color: var(--text-primary);
+            white-space: nowrap;
+            transition: font-size 0.35s ease;
+        }
+
+        .banner.is-scrolled .banner__tagline {
+            font-size: clamp(0.39em, 1.77vw, 0.71em);
+        }
+
+        .banner.is-scrolled {
+            height: 6vh;
+            width: 95%;
+            max-width: 800px;
+            margin: 0 auto 10px;
+            padding: 2px 4px;
+            gap: 3px;
+            background-color: #ffffff;
+            border-radius: 0 0 10px 10px;
+            border: 3px solid var(--text-primary);
+            border-top: none;
+        }
+
+        @media (max-width: 480px) {
+            .banner {
+                gap: 3px;
+                padding: 2px 4px;
+                margin: 0 auto 10px;
+            }
+
+            .banner img {
+                max-width: 48%;
+            }
+
+            .banner__tagline {
+                font-size: clamp(0.41em, 3.25vw, 0.64em);
+            }
+        }
+
+        main {
+            padding: 20px;
+            margin: auto;
+            flex: 1;
+            border-radius: 24px;
+        }
+
+        main h2 {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .item-list ul {
+            list-style: none;
+        }
+
+        .item-list-intro {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 0.85em;
+        }
+
+        .ili-divider {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .item-list li {
+            margin-bottom: 10px;
+            padding: 8px 0;
+            text-align: center;
+        }
+
+        .item-list li.done {
+            text-decoration: line-through;
+            color: #507752;
+        }
+
+        @media (max-width: 600px) {
+            .item-list-intro {
+                font-size: 0.75em;
+            }
+
+            .ili-divider {
+                font-size: 0.5em;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin: 20px auto 12px;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Banner -->
+    <header class="banner">
+        <img src="banner.png" alt="Banner Image">
+        <p class="banner__tagline">&lt; ALLIG<i>Acer</i></p>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <section class="item-list">
+            <!-- add class="done" for completed items -->
+            <p class="item-list-intro">These are the list of things I have yet to do in this city!<br><br>My Wish is Your Command</p>
+            <p class="ili-divider">· · ────── ꒰ঌ·✦·໒꒱ ────── · ·</p>
+            <h2>✦ Events ✦</h2>
+            <ul>
+                <li>Yosemite Outdoor Climbing</li>
+                <li>San Francisco Columbarium / Mission San Francisco De Asis</li>
+                <li>BOYBig Wheel :(</li>
+                <li>SF cross town trail</li>
+                <li>French seaman top (thrifting)</li>
+                <li>Take another Ferry to East/North Bay</li>
+            </ul>
+            <h2>✦ Wishlist ✦</h2>
+            <ul>
+                <li class="done">16ave tile steps</li>
+                <li>Taro Deck</li>
+                <li>🛵</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p><a href="https://acer.wang">acer.wang</a> &copy; 2026</p>
+    </footer>
+
+    <script>
+        (function () {
+            var banner = document.querySelector(".banner");
+            if (!banner) return;
+
+            var threshold = 8;
+
+            function syncBannerHeight() {
+                var y = window.scrollY || document.documentElement.scrollTop;
+                banner.classList.toggle("is-scrolled", y > threshold);
+            }
+
+            syncBannerHeight();
+            window.addEventListener("scroll", syncBannerHeight, { passive: true });
+        })();
+    </script>
+</body>
+</html>
