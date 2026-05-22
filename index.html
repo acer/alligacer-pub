@@ -65,7 +65,7 @@
             text-decoration: underline;
         }
 
-        /* Sticky banner */
+        /* Banner */
         .banner,
         main,
         footer {
@@ -75,10 +75,7 @@
         }
 
         .banner {
-            position: sticky;
-            top: 0;
             height: 15vh;
-            z-index: 1000;
             overflow: hidden;
             margin: 0 auto 12px;
             display: flex;
@@ -88,7 +85,6 @@
             gap: 4px;
             padding: 4px 6px;
             border-radius: 16px;
-            transition: height 0.35s ease, max-width 0.35s ease, background-color 0.35s ease, border-radius 0.35s ease;
         }
 
         .banner img {
@@ -112,24 +108,6 @@
             line-height: 1.2;
             color: var(--text-primary);
             white-space: nowrap;
-            transition: font-size 0.35s ease;
-        }
-
-        .banner.is-scrolled .banner__tagline {
-            font-size: clamp(0.39em, 1.77vw, 0.71em);
-        }
-
-        .banner.is-scrolled {
-            height: 6vh;
-            width: 95%;
-            max-width: 800px;
-            margin: 0 auto 10px;
-            padding: 2px 4px;
-            gap: 3px;
-            background-color: #ffffff;
-            border-radius: 0 0 10px 10px;
-            border: 3px solid var(--text-primary);
-            border-top: none;
         }
 
         @media (max-width: 480px) {
@@ -186,6 +164,22 @@
             color: #507752;
         }
 
+        .item-list .hover-reveal {
+            cursor: default;
+        }
+
+        .item-list .hover-reveal__long {
+            display: none;
+        }
+
+        .item-list .hover-reveal:hover .hover-reveal__short {
+            display: none;
+        }
+
+        .item-list .hover-reveal:hover .hover-reveal__long {
+            display: inline;
+        }
+
         @media (max-width: 600px) {
             .item-list-intro {
                 font-size: 0.75em;
@@ -209,24 +203,27 @@
     <!-- Banner -->
     <header class="banner">
         <img src="banner.png" alt="Banner Image">
-        <p class="banner__tagline">&lt; ALLIG<i>Acer</i></p>
+        <p class="banner__tagline">&lt; See you later, allig<i>Acer</i></p>
     </header>
 
     <!-- Main content -->
     <main>
         <section class="item-list">
             <!-- add class="done" for completed items -->
-            <p class="item-list-intro">These are the list of things I have yet to do in this city!<br><br>My Wish is Your Command</p>
+            <p class="item-list-intro">Hi lovely friends, I shall be departing SF late July :(<br><br>These are the lists of things I have yet to do in this city! If any of them strikes your fancy, please reach out to me and let's get planning to enjoy these last moments together!<br><br><a href="https://partiful.com/e/XNubO5mWDbPiaOz3iqVA">Join this Partiful</a> for live updates to these events!</p>
             <p class="ili-divider">· · ────── ꒰ঌ·✦·໒꒱ ────── · ·</p>
             <h2>✦ Events ✦</h2>
             <ul>
-                <li>Bay to Breakers</li>
-                <li>Make a SF Time Capsule</li>
-                <li>Incredibly specific SF Walking Tours</li>
-                <li><a href="https://crosstowntrail.org/crosstown-trail/">SF crosstown trail</a></li>
-                <li>Outdoor Climbing at Yosemite (safely)</li>
-                <li><a href="https://maps.app.goo.gl/T1Wsy9JFKcZw2mFdA">French seaman top</a> (thrifting)</li>
-                <li>Take a Ferry to East/North Bay</li>
+                <li>[6/5] <a href="https://partiful.com/e/GmS5WFw3whVzZogUIKoY">Beginning of the End Party</a></li>
+                <li>[TBD] Friends & Fam SF Time Capsule</li>
+                <li>[TBD] (My) Estate Silent Auction</li>
+                <li>[TBD] Incredibly specific SF Walking Tours</li>
+                <li>[TBD] <a href="https://crosstowntrail.org/crosstown-trail/">SF crosstown trail</a></li>
+                <li>[TBD] Take a Ferry to East/North Bay</li>
+                <li>[TBD] Half Birthday with Bouncing Castle</li>
+                <li>[TBD] Angel Island Camping</li>
+                <li>[TBD] Outdoor Climbing at Yosemite (safely)</li>
+                <li class="done">Bay to Breakers :(</li>
                 <li class="done">BOYBig Wheel :(</li>
             </ul>
             <h2>✦ Visits ✦</h2>
@@ -236,13 +233,20 @@
                 <li><a href="https://maps.app.goo.gl/XLjmn8ZgFRubiCxXA">16th Ave tiled steps</a></li>
                 <li>Sutro Baths / Camera Obscura / Macondray Lane / Wave Organ</li>
                 <li>Fort Point</li>
-                <li>Mill Valley Library</li>
-                <li>House of Prime Ribs</li>
+                <li>Mill Valley Library + Sol Food</li>
+                <li><span class="hover-reveal"><span class="hover-reveal__short">BOMO</span><span class="hover-reveal__long">Bottomless Mimosas</span></span></li>
+                <li>Butter @ 11th</li>
+                <li>Get supposedly good SF bagel (🤷🏻‍♂️where?)</li>
+                <li>Randall Museum</li>
+                <li>It's-It Factory</li>
+                <li>Biet Rima</li>
+                <li class="done">House of Prime Ribs :D</li>
             </ul>
             <h2>✦ Get ✦</h2>
             <ul>
                 <li>Receive a Tarot Deck</li>
-                <li><a href="https://www.yaaqeestudio.com/">Locally-made Grills</a></li>
+                <li><a href="https://www.yaaqeestudio.com/">Locally-made Grillz</a></li>
+                <li><a href="https://maps.app.goo.gl/T1Wsy9JFKcZw2mFdA">French seaman top</a> (thrifting)</li>
                 <li>DIY bronze/gold ring</li>
                 <li>Resole climbing shoes</li>
                 <li>🛵</li>
@@ -254,21 +258,5 @@
         <p><a href="https://acer.wang">acer.wang</a> &copy; 2026</p>
     </footer>
 
-    <script>
-        (function () {
-            var banner = document.querySelector(".banner");
-            if (!banner) return;
-
-            var threshold = 8;
-
-            function syncBannerHeight() {
-                var y = window.scrollY || document.documentElement.scrollTop;
-                banner.classList.toggle("is-scrolled", y > threshold);
-            }
-
-            syncBannerHeight();
-            window.addEventListener("scroll", syncBannerHeight, { passive: true });
-        })();
-    </script>
 </body>
 </html>
